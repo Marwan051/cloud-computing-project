@@ -1,0 +1,33 @@
+[
+    {
+      "name": "John Doe",
+      "id": "s123456",
+      "cgpa": 3.5,
+      "age": 20
+    },
+    {
+      "name": "Jane Smith",
+      "id": "s789012",
+      "cgpa": 3.8,
+      "age": 22
+    },
+    {
+      "name": "Bob Johnson",
+      "id": "s345678",
+      "cgpa": 3.2,
+      "age": 21
+    },
+    {
+      "name": "Alice Brown",
+      "id": "s234567",
+      "cgpa": 3.9,
+      "age": 23
+    },
+    {
+      "name": "Mike Davis",
+      "id": "s456789",
+      "cgpa": 3.7,
+      "age": 24
+    }
+
+]
