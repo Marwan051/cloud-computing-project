@@ -1,7 +1,7 @@
+const waitPort = require('wait-port');
 const mysql = require('mysql2');
 const express = require('express');
 const app = express();
-
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', 'http://localhost:9080');
@@ -11,64 +11,39 @@ app.use((req, res, next) => {
   next();
 });
 
-const PORT = process.env.NODE_DOCKER_PORT || 3000;
+
+const params = {
+  host: 'db',
+  port: 3306,
+};
+waitPort(params)
+  .then(({ open, ipVersion }) => {
+    if (open) {
+
+      const PORT = process.env.NODE_DOCKER_PORT || 3000;
 
 
-    const connection = mysql.createConnection({
-        host     : 'db',
-        user     : 'root',
-        password : 'password',
-        database : 'uni_db',
-        port: 3306,
-    });
-        connection.connect(function(err) {
-            if (err) {
-                console.error('error connecting: ' + err.stack);
-                
-                
-            } else {
-                console.log('connected as id ' + connection.threadId);
-                
-            }
-        });
-    
-    
-
-const data = {
-  "0":{
-    "name":"ahmed",
-    "age":20
-  },
-  "1":{
-    "name":"ali",
-    "age":21
-  },
-  "2":{
-    "name":"amr",
-    "age":22
-  }
-}
-
-app.get("/data", (req, res) => {
-  res.send(data);
-});
-
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
+      const connection = mysql.createConnection({
+          host     : 'db',
+          user     : 'root',
+          password : 'password',
+          database : 'uni_db',
+          port: 3306,
+      });
+          connection.connect(function(err) {
+              if (err) {
+                  console.error('error connecting: ' + err.stack);
+                  
+                  
+              } else {
+                  console.log('connected as id ' + connection.threadId);
+                  
+              }
+          });
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}!`);
 });
-
-
-app.get('/dbtest',(req, res) =>  {
-  connection.query('SELECT * FROM STUDENTS', function (error, results, fields) {
-    if (error) console.log(error);
-    res.send(results);
-  });
-});
-
 
 app.get('/students', (req, res) => {
   connection.query('SELECT * FROM STUDENTS', function (error, results, fields) {
@@ -82,3 +57,10 @@ app.get('/students', (req, res) => {
     console.log(students);
     res.send(students);
 })});
+
+    }
+    else console.log('The port did not open before the timeout...');
+  })
+  .catch((err) => {
+    console.err(`An unknown error occured while waiting for the port: ${err}`);
+  });
