@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS STUDENTS (
 
 INSERT INTO STUDENTS (id, student_name, cgpa, age) VALUES
 ('22010248', 'Marwan Mohamed Hussien', 3.3, 20),
-('22010002', 'Ahmed Alaa El-Deen Ismail', 3.6, 20),
+('22010002', 'Ahmed Alaaeldin Ismail', 3.6, 19),
 ('22011600', 'Hassan Ahmed Mohamed', 3.4, 20),
 ('22011534', 'Omar Essam El-Saied', 3.2, 21),
 ('20221370967', 'Seif El-Deen Hany Mohamed', 3.5, 21)
