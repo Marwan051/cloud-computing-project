@@ -28,7 +28,8 @@ services:
       - '3000'
     ports:
       - 3000:3000
-    command: sh -c './wait-for -t 60 db:3306 -- node index.js'
+    # command: sh -c './wait-for -t 60 db:3306 -- node index.js'
+    command: sh -c 'sleep 5; node index.js'
     networks:
       - internalnet
   frontend:
