@@ -4,10 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
+    <script src="navbar.js"></script>
+    <link rel="stylesheet" href="indexStyle.css">
 </head>
 <body>
-    <h1>Welcome to my home page</h1>
-    <p><a href="./Students.html" target="_self">Click here</a> to See the students</p>
-
+    <div class = "intro">
+        <h1>Welcome to our <br> &emsp;<span class = 'highlight'>Cloud Computing </span><br>Final project</h1>
+        <h4>This is  a dockerized web application with a database</h4>
+        <image src = "docker.svg" class = "header__img">
+        <div class = "points">
+        <hr>
+        <p> Throughout this project we gained hands-on experience in:</p>
+        <ul>
+            <li>containerization</li>
+            <li>communication between containers using Docker Compose</li>
+            <li>web development</li>
+        </ul>
+        </div>
+        <p><a class = 'a' href="./students.html" target="_self">&rarr;More About Us</a></p>
+        <p><a class = 'a' href="./project.html" target="_self">&rarr;More About The Project</a></p>
+    </div>
 </body>
 </html>
