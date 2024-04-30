@@ -11,77 +11,79 @@
 <body>
   <h1>Building a Dockerized Web Application with MySQL Database</h1>
 
-  <h2>Tools Used:</h2>
-  <ul class = "tools">
-    <li>HTML</li>
-    <li>CSS</li>
-    <li>JavaScript</li>
-    <li>Node.js</li>
-    <li>MySQL</li>
-    <li>Docker</li>
-    <li>Apache HTTP Server</li>
-  </ul>
-  <hr>
-  <h2>Project Steps:</h2>
-  <ol>
-    <li><h4>Building the Frontend:</h4>
-      <ul>
-        <li>Create HTML, CSS, and JavaScript files for the frontend.</li>
-        <li>Set up pages: Homepage, About us (receives data from the database and displays in a slider), and About the project.</li>
-      </ul>
-    </li>
+  <div class = "content">
+    <h2>Tools Used:</h2>
+    <ul class = "tools">
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+      <li>Node.js</li>
+      <li>MySQL</li>
+      <li>Docker</li>
+      <li>Apache HTTP Server</li>
+    </ul>
+    <hr>
+    <h2>Project Steps:</h2>
+    <ol>
+      <li><h4>Building the Frontend:</h4>
+        <ul>
+          <li>Create HTML, CSS, and JavaScript files for the frontend.</li>
+          <li>Set up pages: Homepage, About us (receives data from the database and displays in a slider), and About the project.</li>
+        </ul>
+      </li>
 
-    <li><h4>Creating the Frontend Dockerfile:</h4>
-      <ul>
-        <li>Copy frontend files into Apache server root directory.</li>
-        <li>Expose port 80.</li>
-        <li>Run Apache server in the foreground.</li>
-      </ul>
-    </li>
+      <li><h4>Creating the Frontend Dockerfile:</h4>
+        <ul>
+          <li>Copy frontend files into Apache server root directory.</li>
+          <li>Expose port 80.</li>
+          <li>Run Apache server in the foreground.</li>
+        </ul>
+      </li>
 
-    <li><h4>Creating the Database Scripts:</h4>
-      <ul>
-        <li>Create MySQL script file (schema.sql) containing database schema and initial data.</li>
-      </ul>
-    </li>
+      <li><h4>Creating the Database Scripts:</h4>
+        <ul>
+          <li>Create MySQL script file (schema.sql) containing database schema and initial data.</li>
+        </ul>
+      </li>
 
-    <li><h4>Creating the Database Dockerfile:</h4>
-      <ul>
-        <li>Copy database script file(s) into /docker-entrypoint-initdb.d/ folder within MySQL container.</li>
-      </ul>
-    </li>
+      <li><h4>Creating the Database Dockerfile:</h4>
+        <ul>
+          <li>Copy database script file(s) into /docker-entrypoint-initdb.d/ folder within MySQL container.</li>
+        </ul>
+      </li>
 
-    <li><h4>Creating the Backend:</h4>
-      <ul>
-        <li>Set up a Node.js Express server.</li>
-        <li>Connect Express server to MySQL database.</li>
-        <li>wait for the database port to become available, and then start the server to listen for incoming HTTP requests.</li>
-      </ul>
-    </li>
+      <li><h4>Creating the Backend:</h4>
+        <ul>
+          <li>Set up a Node.js Express server.</li>
+          <li>Connect Express server to MySQL database.</li>
+          <li>wait for the database port to become available, and then start the server to listen for incoming HTTP requests.</li>
+        </ul>
+      </li>
 
-    <li><h4>Creating the Backend Dockerfile:</h4>
-      <ul>
-        <li>Install Node.js dependencies using npm.</li>
-        <li>Copy backend files into Docker container.</li>
-        <li>Expose port 3000.</li>
-        <li>Start the Node.js application.</li>
-      </ul>
-    </li>
+      <li><h4>Creating the Backend Dockerfile:</h4>
+        <ul>
+          <li>Install Node.js dependencies using npm.</li>
+          <li>Copy backend files into Docker container.</li>
+          <li>Expose port 3000.</li>
+          <li>Start the Node.js application.</li>
+        </ul>
+      </li>
 
-    <li><h4>Creating Docker Compose Configuration:</h4>
-      <ul>
-        <li>Define services for frontend, backend, and MySQL database.</li>
-        <li>Connect all services to the same network.</li>
-        <li>Specify dependencies between services.</li>
-        <li>Configure volumes and ports as needed.</li>
-      </ul>
-    </li>
+      <li><h4>Creating Docker Compose Configuration:</h4>
+        <ul>
+          <li>Define services for frontend, backend, and MySQL database.</li>
+          <li>Connect all services to the same network.</li>
+          <li>Specify dependencies between services.</li>
+          <li>Configure volumes and ports as needed.</li>
+        </ul>
+      </li>
 
-    <li><h4>Building and Running the Docker Compose Environment:</h4>
-      <ul>
-        <li>Run <code>docker compose up --build -d</code> to build and start Docker containers.</li>
-        <li>Access the application at http://localhost:9080 .</li>
-      </ul>
-    </li>
+      <li><h4>Building and Running the Docker Compose Environment:</h4>
+        <ul>
+          <li>Run <code>docker compose up --build -d</code> to build and start Docker containers.</li>
+          <li>Access the application at http://localhost:9080 .</li>
+        </ul>
+      </li>
+  </div>
 </body>
 </html>
