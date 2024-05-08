@@ -1,0 +1,46 @@
+version: "3.8"
+
+services:
+  db:
+    build: ./db
+    restart: always
+    environment:
+      MYSQL_DATABASE: "uni_db"
+      MYSQL_USER: "user"
+      MYSQL_PASSWORD: "password"
+      MYSQL_ROOT_PASSWORD: "password"
+      MYSQL_ROOT_USER: "root"
+    expose:
+      - "3306"
+    ports:
+      - 3307:3306
+    volumes:
+      - mysql-db:/var/lib/mysql
+    container_name: "db"
+    networks:
+      - internalnet
+  backend:
+    depends_on:
+      - "db"
+    build: ./backend
+    expose:
+      - "3000"
+    ports:
+      - 3000:3000
+    networks:
+      - internalnet
+  frontend:
+    depends_on:
+      - "backend"
+    build: ./frontend
+    expose:
+      - "80"
+    ports:
+      - 9080:80
+    networks:
+      - internalnet
+volumes:
+  mysql-db:
+networks:
+  internalnet:
+    driver: bridge
